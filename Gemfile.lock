@@ -79,6 +79,12 @@ GEM
       json (>= 1.4.6)
       launchy (>= 2.0.0)
       signet (~> 0.2.2)
+    haml (3.1.4)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hashie (1.2.0)
     hike (1.2.1)
     httpadapter (1.0.1)
@@ -198,6 +204,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   google-api-client
+  haml-rails
   jquery-rails
   omniauth
   omniauth-google-oauth2
