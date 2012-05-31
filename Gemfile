@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'haml-rails'
 gem 'rails', '3.2.2'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
