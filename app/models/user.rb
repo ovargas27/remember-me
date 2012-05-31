@@ -1,10 +1,20 @@
 class User < ActiveRecord::Base
-  def self.new_from_oauth hash
-    obj = User.new
-    obj.email = hash.info["email"]
-    obj.name = hash.info["name"]
-    obj.access_token = hash.credentials["token"]
-    obj.refresh_token =  hash.credentials["refresh_token"]
-    obj
+  def self.find_or_create_from_oauth(hash)
+    user = self.find_by_info(hash.info) || self.create_by_info(hash.info)
+    user.set_credentials(hash.credentials)
+    user
+  end
+
+  def self.find_by_info(params={})
+    User.where(email: params["email"]).first
+  end
+
+  def self.create_by_info(params={})
+    User.create(email: params["email"],name: params["name"])
+  end
+
+  def set_credentials(credentials={})
+    self.access_token = credentials["token"]
+    self.refresh_token =  credentials["refresh_token"]
   end
 end

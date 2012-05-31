@@ -1,6 +1,9 @@
 RememberMe::Application.routes.draw do
    root :to => 'welcome#index'
    match '/auth/:provider/callback', to: 'sessions#create'
+   match '/login', to: 'sessions#new'
+   match '/logout', to: 'sessions#destroy'
+   match '/auth/failure', to: 'sessions#failure'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

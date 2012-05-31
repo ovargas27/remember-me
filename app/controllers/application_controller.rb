@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
 
   helper_method :current_user
 
@@ -17,4 +16,5 @@ class ApplicationController < ActionController::Base
     user_id = session[:user_id]
     @current_user ||= User.find user_id if user_id
   end
+
 end
